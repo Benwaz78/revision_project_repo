@@ -2,4 +2,3 @@ revision_project/__pycache__
 *.log
 *.pot
 *.pyc
-db.sqlite3
