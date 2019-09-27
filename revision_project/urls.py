@@ -22,6 +22,7 @@ from revision_app import views
 urlpatterns = [
     path('', views.index, name='index'),
     path('revision/', include('revision_app.urls')),
+    path('tinymce/', include('tinymce.urls')),
     path('admin/', admin.site.urls),
 ]
 

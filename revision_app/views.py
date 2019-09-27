@@ -2,9 +2,21 @@ from django.shortcuts import render
 from revision_app.models import About, Service
 from django.contrib.auth.models import User
 from django.shortcuts import render, redirect
-from revision_app.forms import RegForm
+from revision_app.forms import RegForm, AboutForm
+
 
 # Create your views here.
+
+def about_form(request):
+	if request.method == 'POST':
+		about_form = AboutForm(request.POST)
+
+		if about_form.is_valid():
+			about_form.save()
+	else:
+		about_form = AboutForm()
+		return render(request, 'front_end/about_form.html', {'abt_form':about_form})
+
 
 def index(request):
 	show_service = Service.objects.all()

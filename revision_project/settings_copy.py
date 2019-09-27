@@ -28,40 +28,10 @@ SECRET_KEY = '@6w3k96wq+jj24z+4!4(qe3+0)*s4yj$p5t(^-d50ckjgk=)*)'
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = []
+ALLOWED_HOSTS = ['*']
 
 
 # Application definition
-
-TINYMCE_DEFAULT_CONFIG = {
-    'height': 360,
-    'width': 750,
-    'cleanup_on_startup': True,
-    'custom_undo_redo_levels': 20,
-    'selector': 'textarea',
-    'theme': 'modern',
-    'plugins': '''
-            textcolor save link image media preview codesample contextmenu
-            table code lists fullscreen  insertdatetime  nonbreaking
-            contextmenu directionality searchreplace wordcount visualblocks
-            visualchars code fullscreen autolink lists  charmap print  hr
-            anchor pagebreak
-            ''',
-    'toolbar1': '''
-            fullscreen preview bold italic underline | fontselect,
-            fontsizeselect  | forecolor backcolor | alignleft alignright |
-            aligncenter alignjustify | indent outdent | bullist numlist table |
-            | link image media | codesample |
-            ''',
-    'toolbar2': '''
-            visualblocks visualchars |
-            charmap hr pagebreak nonbreaking anchor |  code |
-            ''',
-    'contextmenu': 'formats | link image',
-    'menubar': True,
-    'statusbar': True,
-    }
-
 
 INSTALLED_APPS = [
     'django.contrib.admin',
@@ -70,8 +40,7 @@ INSTALLED_APPS = [
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles',
-    'revision_app',
-    'tinymce'
+    'revision_app'
 ]
 
 MIDDLEWARE = [
@@ -156,5 +125,6 @@ STATIC_URL = '/static/'
 STATICFILES_DIRS = [STATIC_DIR]
 
 MEDIA_URL = '/media/'
+STATIC_ROOT = '/home/benedictuwazie/revision_project_repo/static'
 
 LOGIN_REDIRECT_URL = 'revision_app:dashboard'

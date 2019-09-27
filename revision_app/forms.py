@@ -2,6 +2,27 @@ from django import forms
 from django.core import validators
 from django.contrib.auth.models import User
 from django.contrib.auth.forms import UserCreationForm
+from revision_app.models import About
+from tinymce import TinyMCE
+
+class TinyMCEWidget(TinyMCE):
+    def use_required_attribute(self, *args):
+        return False
+
+
+
+class AboutForm(forms.ModelForm):
+	about_desc = forms.CharField(
+	    widget=TinyMCEWidget(
+	        attrs={'required': False, 'cols': 30, 'rows': 10}
+	    )
+	)
+
+
+	class Meta():
+		model = About
+		fields = '__all__'
+
 
 
 class RegForm(UserCreationForm):
