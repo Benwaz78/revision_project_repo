@@ -1,0 +1,61 @@
+{% extends 'front_end/base.html' %}
+<!Doctype html>
+{% load static %}
+{% block title %}
+Home
+{% endblock%}
+
+{% block content %}
+ <section id="banner">
+    <div class="row">
+      <div class="col-sm-3 col-sm-offset-9 text-center">
+        <div class="caption">
+          <h1>Join Us</h1>
+          <p>
+            Lorem ipsum dolor sit amet, consectetur adipisicing elit. Eveniet minus, esse ex molestias maiores. Provident nam totam modi, expedita quos sit voluptates distinctio porro illo esse asperiores, animi eveniet ipsam?
+          </p>
+          <a href="#" class="btn btn-primary">Readmore</a>
+        </div>
+      </div>
+    </div>
+</section>
+<section id="services" class="text-center">
+  <div class="page-header">
+    <h1>Services</h1>
+  </div>
+  <div class="row">
+    {% if serv_key %}
+      {% for srv in serv_key %}
+        <div class="col-sm-4">
+          <span class="fa fa-android"></span>
+          <h1>{{ srv.service_title }}</h1>
+          <p>
+           {{ srv.service_desc }}
+          </p>
+          <a href="#" class="btn btn-primary">Readmore</a>
+        </div>
+      {% endfor %}
+    {% endif %}
+  </div>
+</section>
+<section id="team">
+  <div class="page-header">
+    <h1 class="text-center">Our Team</h1>
+  </div>
+  <div class="row">
+    {% if abt_key %}
+      {% for abt in abt_key %}
+        <div class="col-sm-3">
+          <img src="{{ abt.about_img.url }}" alt="" class="img-responsive img-circle">
+          <h1>{{ abt.name }}</h1>
+          <p>
+           {{ srv.about_desc }}
+          </p>
+          <a href="revision/about_detail_page/{{ abt.id }}" class="btn btn-primary">Readmore</a>
+        </div>
+      {% endfor %}
+    {% endif %}
+  </div>
+</section>
+<!-- END OF SERVICE SECTION -->
+{% endblock %}

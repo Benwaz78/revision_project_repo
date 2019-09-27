@@ -1,0 +1,30 @@
+{% extends 'front_end/base.html' %}
+<!Doctype html>
+{% load static %}
+{% block title %}
+Services
+{% endblock %}
+
+{% block content %}
+<section id="sectionTitle">
+   <div class="pageTitle">
+     <h1>Form Validators</h1>
+   </div>
+</section>
+<!-- END OF PAGE TITLE -->
+<section id="content">
+  <div class="row">
+    <div class="col-sm-9" id="mainContent">
+      <form method="post">
+        <table>
+          {{ my_form_data.as_table }}
+          {% csrf_token %}
+        </table>
+       
+        <input type="submit" class="btn btn-primary" value="Send">
+      </form>
+    </div>
+   {% include 'front_end/sidebar.html' %}
+  </div>
+</section>
+{% endblock %}

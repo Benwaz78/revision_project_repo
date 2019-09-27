@@ -1,0 +1,37 @@
+{% extends 'front_end/base.html' %}
+<!Doctype html>
+{% load static %}
+{% block title %}
+{{ abt_det.name }}
+{% endblock %}
+
+
+{% block content %}
+<section id="sectionTitle">
+   <div class="pageTitle">
+     <h1>{{ abt_det.name }}</h1>
+   </div>
+</section>
+<!-- END OF PAGE TITLE -->
+<section id="content">
+ <div class="row">
+   <div class="col-sm-9 text-center" id="detailContent">
+      {% if abt_det %}
+       <div class="contain-img">
+         <div class="img-div">
+             <img src="{{ abt_det.about_img.url }}" class="img-responsive">
+         </div>
+       </div>
+       <div class="detail-content">
+         <h2>{{ abt_det.name }}</h2>
+         <p>
+          {{ abt_det.about_desc }}
+         </p>
+       </div>
+      {% endif %}
+
+   </div>
+  {% include 'front_end/sidebar.html' %}
+ </div>
+</section>
+{% endblock %}

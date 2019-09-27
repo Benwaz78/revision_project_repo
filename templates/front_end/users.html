@@ -1,0 +1,46 @@
+{% extends 'front_end/base.html' %}
+<!Doctype html>
+{% load static %}
+{% block title %}
+Users
+{% endblock %}
+
+
+{% block content %}
+<section id="sectionTitle">
+   <div class="pageTitle">
+     <h1>List of Users</h1>
+   </div>
+</section>
+<!-- END OF PAGE TITLE -->
+<section id="content">
+ <div class="row">
+   <div class="col-sm-9" id="mainContent">
+     <div class="row">
+      <div class="col-sm-12">
+        <h2>List Of users</h2>
+        <table class="table">
+          <tr>
+            <th>Username</th>
+            <th>Firstname</th>
+            <th>Lastname</th>
+            <th>Email</th>
+          </tr>
+          {% if usr_list %}
+          {% for key in usr_list %}
+          <tr>
+            <td>{{ key.username }}</td>
+            <td>{{ key.first_name }}</td>
+            <td>{{ key.last_name }}</td>
+            <td>{{ key.email }}</td>
+          </tr>
+          {% endfor %}
+          {% endif %}
+        </table>
+      </div>
+     </div>
+   </div>
+  {% include 'front_end/sidebar.html' %}
+ </div>
+</section>
+{% endblock %}

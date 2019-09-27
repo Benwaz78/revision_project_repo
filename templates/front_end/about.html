@@ -1,0 +1,44 @@
+{% extends 'front_end/base.html' %}
+<!Doctype html>
+{% load static %}
+{% block title %}
+About Us
+{% endblock %}
+
+
+{% block content %}
+<section id="sectionTitle">
+   <div class="pageTitle">
+     <h1>About Us</h1>
+   </div>
+</section>
+<!-- END OF PAGE TITLE -->
+<section id="content">
+ <div class="row">
+   <div class="col-sm-9 text-center" id="mainContent">
+     <div class="row">
+
+        {% if abt_list %}
+            {% for abt in abt_list %}
+              <div class="col-sm-4">
+                <a href="about_detail_page/{{ abt.id }}">
+                    <img src="{{ abt.about_img.url }}" class="img-circle">
+                </a>
+                <h2>{{ abt.name }}</h2>
+                <a href="about_detail_page/{{ abt.id }}" class="btn btn-primary">Readmore</a>
+              </div>
+
+
+              
+            {% endfor %}
+        {% else %}
+        <p>No content</p>
+
+        {% endif %}
+      
+     </div>
+   </div>
+  {% include 'front_end/sidebar.html' %}
+ </div>
+</section>
+{% endblock %}
