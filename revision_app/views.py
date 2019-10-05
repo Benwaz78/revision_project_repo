@@ -3,6 +3,8 @@ from revision_app.models import About, Service
 from django.contrib.auth.models import User
 from django.shortcuts import render, redirect
 from revision_app.forms import RegForm, AboutForm
+from django.core.mail import send_mail
+from django.conf import settings
 
 
 # Create your views here.
@@ -60,5 +62,15 @@ def register(request):
 	else:
 		register_form = RegForm()
 	return render(request, 'registration/register.html', {'reg':register_form})
+
+
+def send_email(request):
+   subject ='Thank you for registering to our site'
+   message ='This email is cool'
+   email_from = settings.EMAIL_HOST_USER
+   recipient_list = ['uwazie.benedict@alabiansolutions.com', 'admin@akpomudiareesiri.org']
+   send_mail( subject, message, email_from, recipient_list )
+   return render(request, 'front_end/email-sample.html')
+
 
 

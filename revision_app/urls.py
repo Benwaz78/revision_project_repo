@@ -7,6 +7,7 @@ app_name = 'revision_app'
 urlpatterns = [
     path('', views.about, name='about'),
     path('register/', views.register, name='register'),
+    path('email/', views.send_email, name='send_email'),
     path('dashboard/', views.dashboard, name='dashboard'),
     path('about_form/', views.about_form, name='about_form'),
     path('accounts/', include('django.contrib.auth.urls')),
